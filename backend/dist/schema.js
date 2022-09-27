@@ -20,6 +20,13 @@ exports.default = (0, apollo_server_1.gql) `
       phoneNumber: String!
     ): Contact!
 
+    updateContact(
+      id: ID!
+      firstName: String!
+      lastName: String!
+      phoneNumber: String!
+    ): Contact!
+
     deleteContact(id: ID!): Contact!
   }
 `;

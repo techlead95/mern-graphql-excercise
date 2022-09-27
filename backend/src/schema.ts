@@ -19,6 +19,13 @@ export default gql`
       phoneNumber: String!
     ): Contact!
 
+    updateContact(
+      id: ID!
+      firstName: String!
+      lastName: String!
+      phoneNumber: String!
+    ): Contact!
+
     deleteContact(id: ID!): Contact!
   }
 `;

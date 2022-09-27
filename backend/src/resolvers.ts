@@ -15,7 +15,7 @@ export default {
   },
   Mutation: {
     addContact(
-      parent: unknown,
+      _parent: unknown,
       args: {
         firstName: string;
         lastName: string;
@@ -26,7 +26,19 @@ export default {
         data: args,
       });
     },
-    deleteContact(parent: unknown, args: { id: string }) {
+    updateContact(
+      _parent: unknown,
+      args: {
+        id: string;
+        firstName: string;
+        lastName: string;
+        phoneNumber: string;
+      }
+    ) {
+      const { id, ...rest } = args;
+      return prisma.contact.update({ where: { id: Number(id) }, data: rest });
+    },
+    deleteContact(_parent: unknown, args: { id: string }) {
       return prisma.contact.delete({ where: { id: Number(args.id) } });
     },
   },
