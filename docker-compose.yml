@@ -1,29 +1,29 @@
 version: "3.8"
 services:
-  backend:
-    container_name: mern-graphql-backend
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    volumes:
-      - ./backend:/app
-      - /app/node_modules
-    depends_on:
-      - postgres
-    ports:
-      - "9090:9090"
-  frontend:
-    container_name: mern-graphql-frontend
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
-    depends_on:
-      - backend
-    ports:
-      - "3000:3000"
+  # backend:
+  #   container_name: mern-graphql-backend
+  #   build:
+  #     context: ./backend
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ./backend:/app
+  #     - /app/node_modules
+  #   depends_on:
+  #     - postgres
+  #   ports:
+  #     - "9090:9090"
+  # frontend:
+  #   container_name: mern-graphql-frontend
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: Dockerfile
+  #   volumes:
+  #     - ./frontend:/app
+  #     - /app/node_modules
+  #   depends_on:
+  #     - backend
+  #   ports:
+  #     - "3000:3000"
   postgres:
     image: postgres:13
     restart: always
